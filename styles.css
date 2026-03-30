@@ -1,102 +1,90 @@
+/* RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* BASE */
 body {
   font-family: Arial, sans-serif;
-  background: white;
+  background: #ffffff;
   color: #222;
+  line-height: 1.6;
 }
 
-.navbar {
+/* CONTENEDOR */
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* HEADER */
+.site-header {
+  border-bottom: 1px solid #e5e5e5;
+  background: white;
+}
+
+.header-inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 40px;
-  background: white;
-  border-bottom: 1px solid #e5e5e5;
 }
 
-.navbar ul {
-  display: flex;
+/* TITULO PRINCIPAL */
+.site-title {
+  font-size: 1.5rem;
+  color: #2563eb; /* azul */
+}
+
+/* NAV */
+.nav-list {
   list-style: none;
+  display: flex;
   gap: 20px;
 }
 
-.navbar a {
+.nav-list a {
   text-decoration: none;
-  color: #2563eb;
   font-weight: bold;
+  color: #444;
 }
 
-.hero {
-  text-align: center;
-  padding: 60px 20px;
-}
-
-.hero h2 {
-  font-size: 2.5rem;
-  color: #7c3aed;
-}
-
-.card {
-  max-width: 900px;
-  margin: 30px auto;
-  padding: 25px;
-}
-
-.card h2 {
-  font-size: 2rem;
-  margin-bottom: 10px;
+.nav-list a:hover {
   color: #2563eb;
+}
+
+/* SECCIONES */
+section {
+  margin: 40px 0;
+}
+
+/* 🎨 TITULOS DE COLORES */
+#sobre h2 {
+  color: #2563eb; /* azul */
+  font-size: 2rem;
 }
 
 #formacao h2 {
-  color: #d97706;
+  color: #d97706; /* naranja */
+  font-size: 2rem;
 }
 
 #portfolio h2 {
-  color: #16a34a;
+  color: #16a34a; /* verde */
+  font-size: 2rem;
 }
 
 #contato h2 {
-  color: #db2777;
+  color: #db2777; /* rosa */
+  font-size: 2rem;
 }
 
-.projects {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-}
-
-.project {
-  background: #f9f9f9;
-  padding: 15px;
-  border: 1px solid #eee;
-  border-radius: 10px;
-}
-
-input, textarea {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-}
-
-button {
-  padding: 10px 16px;
-  border: none;
-  border-radius: 8px;
-  background: #2563eb;
-  color: white;
-  cursor: pointer;
-}
-
-footer {
+/* FOOTER */
+.site-footer {
+  border-top: 1px solid #e5e5e5;
   text-align: center;
-  padding: 20px;
   color: #666;
+  margin-top: 40px;
 }
