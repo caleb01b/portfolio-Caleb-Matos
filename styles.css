@@ -1,85 +1,94 @@
-/* Reset para padronizar margens */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
+:root{
+  --header-bg: #e6e6e6; /* gris claro del header */
+  --page-bg: #ffffff;
+  --link-blue: #0b66c3; /* azul de los enlaces */
+  --link-visited: #6a0dad; /* morado para visited */
+  --text-color: #111;
+  --container-max: 980px;
+  --gap: 16px;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
 }
 
-/* Configuração do menu superior fixo */
-nav {
-    background-color: #2c3e50;
-    position: fixed;
-    width: 100%;
-    top: 0;
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;background:var(--page-bg);color:var(--text-color);-webkit-font-smoothing:antialiased}
+.container{max-width:var(--container-max);margin:0 auto;padding:0 20px}
+
+.site-header{
+  background:var(--header-bg);
+  border-bottom:1px solid rgba(0,0,0,0.06);
+}
+.header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:var(--gap);
+  padding:18px 0;
 }
 
-nav ul {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    padding: 15px;
+/* Título a la izquierda, negrita */
+.site-title{
+  margin:0;
+  font-size:18px;
+  font-weight:700;
+  color:#000;
+  letter-spacing:0.1px;
 }
 
-nav a {
-    color: white;
-    text-decoration: none;
-    padding: 0 20px;
-    font-size: 18px;
+/* Navegación estilo imagen: enlaces azules, separados por puntos */
+.top-nav .nav-list{
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-size:15px;
 }
 
-nav a:hover {
-    text-decoration: underline;
+/* Cada enlace con punto separador usando ::after excepto el último */
+.top-nav .nav-list li{
+  position:relative;
+}
+.top-nav .nav-list li:not(:last-child)::after{
+  content: "•";
+  color: var(--link-blue);
+  margin-left:10px;
+  margin-right:10px;
+  font-weight:600;
+  display:inline-block;
+  vertical-align:middle;
 }
 
-/* Espaçamento das seções para não ficarem escondidas sob o menu */
-section {
-    padding: 100px 20px 60px; 
-    min-height: 100vh;
-    border-bottom: 1px solid #ddd;
-    max-width: 800px;
-    margin: 0 auto;
+/* Estilos de enlace */
+.top-nav a{
+  color:var(--link-blue);
+  text-decoration:none;
+  font-weight:600;
+  transition:color .15s ease;
+}
+.top-nav a:focus,
+.top-nav a:hover{
+  text-decoration:underline;
+  outline: none;
 }
 
-h2 {
-    margin-bottom: 20px;
-    color: #2c3e50;
+/* Simular enlace visitado en morado */
+.top-nav a:visited,
+.top-nav a.visited{
+  color:var(--link-visited);
 }
 
-p, ul {
-    margin-bottom: 15px;
-    line-height: 1.6;
-}
+/* Contenido principal */
+main{padding:28px 0}
+main section{margin-bottom:22px}
+main h2{margin:0 0 8px 0;font-size:20px}
 
-/* Estilização do Formulário */
-form {
-    display: flex;
-    flex-direction: column;
-}
+/* Footer */
+.site-footer{padding:18px 0;border-top:1px solid rgba(0,0,0,0.06);text-align:left;font-size:14px}
 
-label {
-    margin-top: 10px;
-    font-weight: bold;
-}
-
-input, textarea {
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-button {
-    margin-top: 20px;
-    padding: 15px;
-    background-color: #2c3e50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-button:hover {
-    background-color: #1a252f;
+/* Responsive: en pantallas pequeñas, apilar título y nav */
+@media (max-width:640px){
+  .header-inner{flex-direction:column;align-items:flex-start;gap:8px}
+  .top-nav .nav-list{flex-wrap:wrap;gap:8px}
+  .top-nav .nav-list li:not(:last-child)::after{display:none}
 }
