@@ -1,11 +1,13 @@
-/* RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* BASE */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: Arial, sans-serif;
   background: #ffffff;
@@ -13,78 +15,83 @@ body {
   line-height: 1.6;
 }
 
-/* CONTENEDOR */
 .container {
   max-width: 900px;
-  margin: auto;
+  margin: 0 auto;
   padding: 20px;
 }
 
-/* HEADER */
 .site-header {
+  background: #fff;
   border-bottom: 1px solid #e5e5e5;
-  background: white;
 }
 
 .header-inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
-/* TITULO PRINCIPAL */
 .site-title {
   font-size: 1.5rem;
-  color: #2563eb; /* azul */
+  color: #2563eb;
 }
 
-/* NAV */
 .nav-list {
   list-style: none;
   display: flex;
-  gap: 20px;
+  gap: 18px;
+  flex-wrap: wrap;
 }
 
 .nav-list a {
   text-decoration: none;
-  font-weight: bold;
-  color: #444;
+  font-weight: 700;
+  color: #6b21a8;
 }
 
 .nav-list a:hover {
   color: #2563eb;
 }
 
-/* SECCIONES */
-section {
-  margin: 40px 0;
+main section {
+  padding: 28px 0;
+  scroll-margin-top: 90px;
 }
 
-/* 🎨 TITULOS DE COLORES */
+main section h2 {
+  font-size: 2.1rem;
+  margin-bottom: 12px;
+  font-weight: 800;
+}
+
 #sobre h2 {
-  color: #2563eb; /* azul */
-  font-size: 2rem;
+  color: #2563eb;
 }
 
 #formacao h2 {
-  color: #d97706; /* naranja */
-  font-size: 2rem;
+  color: #d97706;
 }
 
 #portfolio h2 {
-  color: #16a34a; /* verde */
-  font-size: 2rem;
+  color: #16a34a;
 }
 
 #contato h2 {
-  color: #db2777; /* rosa */
-  font-size: 2rem;
+  color: #db2777;
 }
 
-/* FOOTER */
+main section p {
+  font-size: 1.05rem;
+  color: #333;
+}
+
 .site-footer {
   border-top: 1px solid #e5e5e5;
   text-align: center;
   color: #666;
-  margin-top: 40px;
+  padding-top: 18px;
+  padding-bottom: 18px;
 }
