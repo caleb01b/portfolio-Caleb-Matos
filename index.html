@@ -3,118 +3,54 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Portfólio — Caleb Matos Hechavarria S</title>
-  <meta name="description" content="Portfólio de Caleb Matos Hechavarria — estudante com interesse em back-end e projetos em Python.">
-  <meta property="og:title" content="Portfólio — Caleb Matos Hechavarria S">
-  <meta property="og:description" content="Projetos, formação e contato de Caleb Matos Hechavarria.">
-  <meta property="og:type" content="website">
+  <title>Portfólio - Caleb Matos Hechavarria S</title>
+  <meta name="description" content="Portfólio pessoal">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <nav aria-label="Navegação principal">
-      <ul>
-        <li><a href="#sobre">Sobre</a></li>
-        <li><a href="#formacao">Formação</a></li>
-        <li><a href="#portfolio">Portfólio</a></li>
-        <li><a href="#contato">Contato</a></li>
-      </ul>
-    </nav>
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <h1 class="site-title">Portfólio - Caleb Matos Hechavarria S</h1>
+
+      <nav class="top-nav" aria-label="Navegação principal">
+        <ul class="nav-list">
+          <li><a href="#sobre">Sobre mim</a></li>
+          <li><a href="#formacao" class="visited">Formação</a></li>
+          <li><a href="#portfolio">Portfólio</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <main>
-    <section id="sobre" aria-labelledby="sobre-title">
-      <h2 id="sobre-title">Sobre</h2>
-      <p><strong>Olá, sou Caleb Matos Hechavarria.</strong></p>
-      <p>Sou estudante com grande interesse por medicina e tecnologia. Gosto de aprender continuamente e de atividades ao ar livre; costumo ir de mountain bike para a faculdade, o que me ajuda a manter disciplina e foco.</p>
+  <main class="container">
+    <section id="sobre">
+      <h2>Sobre</h2>
+      <p>Olá, meu nome é Caleb Matos Hechavarria.</p>
     </section>
 
-    <section id="formacao" aria-labelledby="formacao-title">
-      <h2 id="formacao-title">Formação</h2>
-      <p><strong>Ensino:</strong> Concluí o ensino fundamental e atualmente estou no ensino médio.</p>
-      <p><strong>Cursos complementares:</strong> Tenho preferência por back-end; estudo Python e desenvolvimento de APIs.</p>
-      <p><strong>Idiomas:</strong> Espanhol e inglês fluentes; aprendendo português.</p>
+    <section id="formacao">
+      <h2>Formação</h2>
+      <p>Ensino médio; cursos complementares em back-end.</p>
     </section>
 
-    <section id="portfolio" aria-labelledby="portfolio-title">
-      <h2 id="portfolio-title">Portfólio</h2>
-      <p>Confira alguns trabalhos e repositórios:</p>
-      <ul>
-        <li><a href="https://github.com/caleb01b?tab=repositories" target="_blank" rel="noopener noreferrer">Meu GitHub</a></li>
-        <li><a href="#" target="_blank" rel="noopener noreferrer">Projeto_Python_Pro (em breve)</a></li>
-      </ul>
+    <section id="portfolio">
+      <h2>Portfólio</h2>
+      <p>Projetos e repositórios.</p>
     </section>
 
-    <section id="contato" aria-labelledby="contato-title">
-      <h2 id="contato-title">Contato</h2>
-      <form id="formContato" name="formContato" novalidate>
-        <div>
-          <label for="nome">Nome</label>
-          <input type="text" id="nome" name="nome" required aria-required="true" minlength="2">
-        </div>
-
-        <div>
-          <label for="email">E-mail</label>
-          <input type="email" id="email" name="email" required aria-required="true">
-        </div>
-
-        <div>
-          <label for="mensagem">Mensagem</label>
-          <textarea id="mensagem" name="mensagem" rows="5" required aria-required="true" minlength="10"></textarea>
-        </div>
-
-        <button type="submit">Enviar Mensagem</button>
-        <p id="formStatus" role="status" aria-live="polite" style="display:none;"></p>
-      </form>
+    <section id="contato">
+      <h2>Contato</h2>
+      <p>Formulário ou e-mail.</p>
     </section>
   </main>
 
-  <footer>
+  <footer class="site-footer container">
     <p>© <span id="ano"></span> Caleb Matos Hechavarria</p>
   </footer>
 
   <script>
-    // Atualiza ano no rodapé
     document.getElementById('ano').textContent = new Date().getFullYear();
-
-    // Exemplo simples de envio do formulário via fetch
-    const form = document.getElementById('formContato');
-    const status = document.getElementById('formStatus');
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      status.style.display = 'block';
-      status.textContent = 'Enviando...';
-
-      const data = {
-        nome: form.nome.value.trim(),
-        email: form.email.value.trim(),
-        mensagem: form.mensagem.value.trim()
-      };
-
-      // Substitua a URL abaixo por seu endpoint ou serviço de formulário (Formspree, Netlify Forms, etc.)
-      const endpoint = 'https://example.com/api/contact';
-
-      try {
-        // Se não tiver backend, comente o fetch e use um mailto ou serviço externo
-        const res = await fetch(endpoint, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data)
-        });
-
-        if (res.ok) {
-          status.textContent = 'Mensagem enviada com sucesso.';
-          form.reset();
-        } else {
-          status.textContent = 'Erro ao enviar. Tente novamente mais tarde.';
-        }
-      } catch (err) {
-        status.textContent = 'Erro de conexão. Verifique sua internet ou o endpoint.';
-      }
-
-      setTimeout(() => { status.style.display = 'none'; }, 5000);
-    });
   </script>
 </body>
 </html>
